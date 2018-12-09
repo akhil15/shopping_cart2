@@ -1,5 +1,4 @@
 # online_shopping
-Create React App is divided into two packages:
 
 - `npm install`
 - `npm init -y`
