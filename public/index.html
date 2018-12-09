@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ********************************************************************** -->
+    <!--                          MAIN CONTAINER                                -->
+    <div class="mt-2 pt-2 pr-4 pl-4 m-auto">
+        
+        <!-- ****************************************************************** -->
+        <!--                            HEADER                                  -->
+        <div class="row main-header m-0">
+            <div class="transp-white ">
+                <h1 class="">Media Shop</h1>
+                <img src="images/icons-images/B4U-Movies.png" class="header-images-1" alt="">
+                <img src="images/icons-images/NodeJS_book_lp.png" class="header-images-2" alt="">
+                <img src="images/icons-images/Music-CD.png" class="header-images-3" alt="">
+
+                <div class="align-nav-at-end row justify-content-between m-0">
+                    <nav class="nav ">
+                        <a class="nav-link active text-white" id="all-btn-id" href="#">All</a>
+                        <a class="nav-link active text-white" id="movies-btn-id" href="#">Movies</a>
+                        <a class="nav-link active text-white" id="music-btn-id" href="#">Music</a>
+                        <a class="nav-link active text-white" id="books-btn-id" href="#">Books</a>
+                    </nav>
+                    <!-- <span id="quantity-id">0</span> -->
+                    <form class="form-inline ">
+                        <!-- <label for="card" id="card-label-id" class="text-white mr-2">Qty</label> -->
+                        <div class="btn btn-primary  mr-3 mt-1 mb-1">
+                            <a href="#" id="cart-btn-id"><span class="h3 ion-android-cart text-white"><span id="quantity-id">0</span></span></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ****************************************************************** -->
+        <!--                     MAIN BODY CONTENT                              -->
+        <div class="main-content-body">
+            <form class="form-group ">
+                <div class="row alert-secondary pt-3 m-0" id="container-products-id">
+                    <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="m-1 mb-4 border rounded p-1 bg-dark shadow">
+                            <img class="card-img-top" src="images/beethoven.jpg" alt="Card image cap" data-toggle="modal" data-target="#scrollImages">
+                            <figcaption class="figure-caption text-white font-weight-bold">100<i class="ion-social-euro"></i></figcaption>
+                        </div>
+                    </div> -->
+                </div>
+             </form>  
+
+            <!-- ************************************************************** -->
+            <!--                 SHOWING THE PRODUCT DETAILS                    -->
+            <div class="form-group" id="container-item-detail-id">
+                <!-- <div class="row pt-3 m-0" >
+                    <div class="col-4">
+                        <img src="images/Disney-Films_SnowWhite.jpg" alt="" class="product" id="product-image-id">
+                    </div>
+                    <div class="ml-5 pl-0 col-3">
+                        <h3>Product Name</h3>
+                        <label for="category"><strong>Category:</strong></label>
+                        <label for="category">product category</label>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente deleniti temporibus saepe provident officiis reprehenderit veritatis ullam rerum illum eum, accusamus, consectetur nisi? Repudiandae, culpa ipsa modi accusantium maiores fugit.</p>
+                    </div>
+                        
+                    <div class="col-md-4 col-xs-12">
+                        <div class="pl-2">
+                            <div class="row pl-1">
+                                <ul class="rate-area">
+                                    <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+                                    <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+                                    <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+                                    <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
+                                    <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
+                                </ul>
+                            </div>
+                            <div class="row col-12">
+                                <label for="quantity">Quantitiy:</label>
+                                <input type="number" value="1" min="1" style="width:50px" class="ml-3 border rounded border-default">
+                            </div>
+                            <div class="row justify-content-between mt-3">
+                                <label for="price" class="col-6">Price:100<i class="ion-social-euro"></i></label>
+                            </div>
+                            <div class="row col-12 mt-2">
+                                <button class="btn btn-info btn-sm float-right ">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- ************************************************************** -->
+            <!--                    PRODUCTS ADDED TO CART                      -->
+
+            <div class="form">
+                <div id="container-cart-id">
+                    <!-- <div class="media">
+                        <div class="media-left media-middle">
+                            <img src="images/icons-images/movies.png" class="media-object" style="width:80px; height:auto;">
+                        </div>
+                        <div class="media-body offset-1 col-7">
+                            <h4 class="media-heading">Media Middle</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                        <div class="col-3">
+                            <div class="row col-12">
+                                <label for="quantity">Quantitiy: 2</label>
+                            </div>
+                            <div class="row mt-3">
+                                <label for="price" class="col-12">Price: 100<i class="ion-social-euro"></i></label>
+                            </div>
+                            <div class="row col-12 mt-2">
+                                <button class="btn btn-danger btn-sm m-auto text-white"><i class="ion-android-delete"></i></button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+        </div><!--           END OF MAIN BODY CONTENT                           -->
+        <!-- ****************************************************************** -->
+    </div><!--END OF CONTAINER-->
+   
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+    <script src="js/main.js"></script>
+
+</body>
+</html>
