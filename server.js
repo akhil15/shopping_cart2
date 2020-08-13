@@ -6,7 +6,6 @@ const path = require('path');
 
 const app = express();
 
-// default options
 app.use('/', express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
@@ -83,6 +82,7 @@ app.put('/product/:productid', function(req, res) {
         }
     });
 });
+
 
 app.delete('/product/:productid', function(req, res) {
     if(!req.params.productid) {
