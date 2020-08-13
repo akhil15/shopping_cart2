@@ -12,21 +12,29 @@ var UIController = (function(){
     
     return{
         displayImages: function(serverData, DOMObjects){
-            hideContainers(DOMObjects);
+            hideContainers(DOMObjects); 
 
             for(var i = 0 ; i < serverData.products.length; i++ ){
                 var StringImage =
-                    `<div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="m-1 mb-4 border rounded p-1 bg-dark shadow">
+                    `
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                        <div class="m-1 mb-4 ">
                             <img class="card-img-top"
                                 id="img-$-${serverData.products[i].id}" 
                                 src="images/${serverData.products[i].imgurl}" 
                                 alt="Card image cap">
-                            <figcaption class="figure-caption text-center text-white">
+                            <div class="name">
                                 ${serverData.products[i].name}
+                                </div>
+                                <div class="category"
+                                <span>
                                 ${serverData.products[i].category}
+                                </span>
+                               
+                                <span style="margin-left: 67%">
                                 ${serverData.products[i].price}
-                            </figcaption>
+                            </span>
+                            </div>
                         </div>
                     </div>`;
                 DOMObjects.containerProductsObj.insertAdjacentHTML('beforeend',StringImage);
@@ -44,6 +52,7 @@ var UIController = (function(){
             for (let i = 0; i < dataSaved.products.length; i++) {
                 if(dataSaved.products[i].id == activeProductId) {
                     hideContainers(DOMObjects);
+                    document.getElementById('left-panel').style.display= "none";
 
                     var domString =
                         `<div class="row pt-3 m-0" >
@@ -175,137 +184,7 @@ var UIController = (function(){
       }
 })();
 
-// =========================================================
-// ============         CART CONTROLLER     ================
-var cartController = (function(){
-    class cartItem{
-        constructor(quantity,products){
-            this.quantity = quantity;
-            this.products = products;
-        }
-    }
 
-    var cartArray = [];
-    var newCartArray = localStorage.getItem('cartArray');
-    if (newCartArray){
-        cartArray = JSON.parse(newCartArray);
-    }
-    var totals={
-        totalPayment:0
-    }
-
-    return{
-        addItemToCart: function(productId){
-            for (let i = 0; i < dataSaved.products.length; i++) {
-                if (productId == dataSaved.products[i].id) {
-                    let key = true;
-                    for (let j = 0; j < cartArray.length; j++) {
-                        if(productId == cartArray[j].products.id){
-                            let newQnty = document.getElementById('input-qnty-'+cartArray[j].products.id).value;
-                            newQnty = Number(newQnty);
-                            cartArray[j].quantity += newQnty;
-                            key = false;
-                            break;
-                        }
-                    }
-                    if (key == true) {
-                        cartArray.push(
-                            new cartItem(
-                                Number(document.getElementById('input-qnty-'+dataSaved.products[i].id).value),
-                                dataSaved.products[i]
-                            )); 
-                        }
-                    console.log('​cartController -> newItemCart', cartArray);
-                    localStorage.setItem('cartArray',JSON.stringify(cartArray));
-                    break;
-                }
-            }
-        },
-        deleteItemFromCart: function(productId){
-            console.log("iam delete function =",productId);
-            for (let i = 0; i < cartArray.length; i++) {
-                if (productId == cartArray[i].products.id) {
-                console.log(`deleteItemFromCart -> cartArray[${i}].products.id`, cartArray[i].products.id);
-                    cartArray.splice(i,1); 
-                    localStorage.setItem('cartArray',JSON.stringify(cartArray));
-                    document.querySelectorAll(".cart-item")[i].remove();
-                }
-            }
-        },
-        calculateCart: function(){
-            // console.log('I am calculate cart!');
-            totals.totalPayment = 0;
-            var multiplyResult = 0;
-            for (let i = 0; i < cartArray.length; i++) {
-                multiplyResult = cartArray[i].quantity * cartArray[i].products.price;
-                totals.totalPayment += multiplyResult;
-            }
-            totals.totalPayment = totals.totalPayment.toFixed(2);
-            console.log('totals.totalPayment', totals.totalPayment);
-        },
-        clearCart:function(){
-            totals.totalPayment = 0;
-            cartArray = [];
-            localStorage.setItem('cartArray',JSON.stringify(cartArray));
-        },
-
-        getCart: function(){
-            return cartArray; 
-        },
-        getTotals: function(){
-            return totals;
-        }
-    }// end of return
-})();
-
-// =========================================================
-// ============     SERVER PART CONTROLLER  ================
-var serverController = (function() { 
-
-  return {
-        // function send POST to the server
-        sendDataToServer: function(url,cartArray){ 
-     
-            var xhr = new XMLHttpRequest();
-            xhr.open( 'POST', 'http://localhost:3000/'+url);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onload = function() {
-                if( xhr.status === 200 ) {
-                    console.log( 'response successfull: ' + xhr.reponseText );
-                    var responseObj = JSON.parse(xhr.responseText);
-                    console.log(responseObj);
-                }
-                else {
-                    console.log( 'error: ' + xhr.status );
-                }
-            }
-            var productsids ={
-                productids: cartArray
-            }
-            xhr.send( JSON.stringify(productsids));
-            cartArray=[];
-            localStorage.setItem('cartArray',JSON.stringify(cartArray));
-        },
-
-        getDataFromServer: function(url,callBack){
-            // console.log('getting data from server...thanks for waiting');
-            var xhr=new XMLHttpRequest();
-            xhr.open("GET", "http://localhost:3000/"+url);
-            xhr.onload = function(){
-                              
-            if (xhr.status===200) {
-              console.log("success status code is 200");
-              var data= xhr.responseText;
-              var recievedData = JSON.parse(data);
-              dataSaved =recievedData;
-              console.log('recievedData = ', recievedData);
-              return callBack(recievedData);
-              }
-            }
-            xhr.send();
-          }
-        }//return close
-      })();
 
 // =========================================================
 // ============         MAIN CONTROLLER     ================
@@ -315,14 +194,6 @@ var controller = (function(serverCtrl,UICntrl,cartCtrl){
       containerProductsObj: document.getElementById("container-products-id"),
       containerProductItemObj: document.getElementById('container-item-detail-id'),
       containerCartObj: document.getElementById("container-cart-id"),
-
-      allBtnObj: document.getElementById("all-btn-id"),
-      moviesBtnObj: document.getElementById("movies-btn-id"),
-      musicBtnObj: document.getElementById("music-btn-id"),
-      booksBtnObj: document.getElementById("books-btn-id"),
-
-      cartBtnObj: document.getElementById("cart-btn-id"),
-      quantityObj: document.getElementById("quantity-id")
     }
     
     var navClickFunction =function(url){
@@ -332,63 +203,12 @@ var controller = (function(serverCtrl,UICntrl,cartCtrl){
     }
 
     var setupEventListeners = function(){
-        DOMObjects.allBtnObj.addEventListener('click',function(){
-            navClickFunction("product");
-        });
-
-        DOMObjects.moviesBtnObj.addEventListener('click',function(){
-            navClickFunction("product?category=Movies");
-        });
-
-        DOMObjects.musicBtnObj.addEventListener('click',function(){
-            navClickFunction("product?category=Music");
-        });
-
-        DOMObjects.booksBtnObj.addEventListener('click',function(){
-            navClickFunction("product?category=Books");
-        });
-
-        DOMObjects.cartBtnObj.addEventListener('click',function(){
-            UICntrl.displayCartItems(DOMObjects, cartCtrl.getCart(), cartCtrl.getTotals());
-            
-            DOMObjects.containerCartObj.addEventListener('click',function(event){
-                let id = event.target.id;
-                let newId = id.split("-item-btn-")
-                if (newId[0] == "delete") {
-                    cartCtrl.deleteItemFromCart(newId[1]);
-                    UICntrl.displayCartQnty(DOMObjects, cartCtrl.getCart());
-                    cartCtrl.calculateCart();
-                    UICntrl.displayTotalPayment(cartCtrl.getTotals());
-                }
-            });
-            
-            if(cartCtrl.getCart().length >0){
-                document.getElementById('buy-now-btn').onclick = function(){
-                    let cartArray = cartCtrl.getCart();
-                    console.log("Thank you, your order in the processes, your order is", cartArray);
-                    if(cartArray.length > 0){
-                        serverCtrl.sendDataToServer("order",cartArray);
-                        cartCtrl.clearCart();
-                        UICntrl.clearContainerCart(DOMObjects);
-                        DOMObjects.quantityObj.innerHTML= "0";
-                    }else{
-                        alert("hhh"+cartArray.length);
-                    }                
-                }
-            }
-            
-        });
- 
         DOMObjects.containerProductsObj.addEventListener('click',function(event){
             UICntrl.displayProductSelected(event,DOMObjects);
             DOMObjects.containerProductItemObj.onclick = function(event){
                 let id = event.target.id;
                 let newId = id.split("-item-btn-");
-                if(newId[0]=="add"){
-                    cartCtrl.addItemToCart(newId[1]);
-                    UICntrl.displayCartQnty(DOMObjects, cartCtrl.getCart());
-                    cartCtrl.calculateCart();
-                }
+               
             };
         });
 

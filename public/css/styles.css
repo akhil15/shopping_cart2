@@ -1,131 +1,243 @@
+@charset "UTF-8";
 * {
-    padding: 0px;
-    margin: 0px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-h1{
-    margin-left: 30px; 
-    padding-top: 20px; 
-}
-li{
-    color: white;
-}
-figcaption{
-    height: 35px;
-    line-height: 35px;
-}
-.main-header{
-    height: 270px;
-    background-image: url(../images/header2.jpeg);
-    background-size: cover;
-}
-.transp-white{
-    height: 270px;
-    background: rgba(24, 16, 16, 0.2);
-    width: 100%;
+  padding: 0px;
+  margin: 0px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-img{
-    height: 200px;
-    object-fit: cover;
-}
-.header-images-1{
-    width: 250px;
-    height: auto;
-}
-.header-images-2{
-    transform: rotate(40deg);
-    position: absolute;
-    top: 40px;
-    right: 30%;
+h1 {
+  margin-left: 30px;
+  padding-top: 20px;
 }
 
-.header-images-3{
-    width: 130px;
-    height:130px;
-    position: absolute;
-    right: 30px;
+li {
+  color: white;
 }
 
-.align-nav-at-end{
-    position: relative;
-    bottom: -20px;
-    background: rgba(24, 16, 16, 0.4);
-}
-.carousel-img{
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
+figcaption {
+  height: 35px;
+  line-height: 35px;
 }
 
-.shadow{
-    box-shadow: 6px 6px 5px grey;
-}
-.shadow:hover{
-    box-shadow: 0 0 10px #fff,
-     0 0 2px #fff,
-     0 0 6px #fff,
-     0 0 8px #228DFF,
-     0 0 10px #228DFF,
-     6px 7px 9px #228DFF;
-    cursor: pointer;
-
+.main-header {
+  height: 270px;
+  background-size: cover;
 }
 
-.product{
-    width: 100%;
-    height: 300px;
-    
-    box-shadow: 6px 6px 5px grey;
-    object-fit: cover;
+.transp-white {
+  height: 270px;
+  background: rgba(24, 16, 16, 0.2);
+  width: 100%;
 }
 
-.description{
-    height: 100px;
-    overflow: hidden;
+.category {
+  font-size: 11px;
 }
 
+.nav-cont {
+  margin-left: 150px;
+}
 
-.rate-area { 
-    float: left;
-    border-style: none;
+.nav-link {
+  color: white;
+}
+
+.navs {
+  margin-left: 15px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.navbar-expand-md .navbar-toggler {
+  display: block !important;
+}
+
+.facets {
+  width: 20%;
+  min-height: 1000px;
+  float: left;
+  padding: 10px;
+}
+
+.facet-arwdwn:after {
+  content: "";
+}
+
+img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.header-images-1 {
+  width: 250px;
+  height: auto;
+}
+
+.header-images-2 {
+  transform: rotate(40deg);
+  position: absolute;
+  top: 40px;
+  right: 30%;
+}
+
+.header-images-3 {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  right: 30px;
+}
+
+.align-nav-at-end {
+  position: relative;
+  bottom: -20px;
+  background: rgba(24, 16, 16, 0.4);
+}
+
+.carousel-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.shadow {
+  box-shadow: 6px 6px 5px grey;
+}
+.shadow:hover {
+  box-shadow: 0 0 10px #fff, 0 0 2px #fff, 0 0 6px #fff, 0 0 8px #228DFF, 0 0 10px #228DFF, 6px 7px 9px #228DFF;
+  cursor: pointer;
+}
+
+.product {
+  width: 100%;
+  height: 300px;
+  box-shadow: 6px 6px 5px grey;
+  object-fit: cover;
+}
+
+.nav-links {
+  margin-left: 30px;
+}
+
+.search-container {
+  margin-left: 19px;
+}
+
+.cart-in {
+  margin-right: 15px;
+}
+
+.search-text {
+  margin-left: 50%;
+}
+
+.description {
+  height: 100px;
+  overflow: hidden;
+}
+
+.header {
+  margin-left: 169px;
+}
+
+.filter-container {
+  padding: 10px;
+}
+
+.filter, .filter:focus {
+  text-align: center;
+  width: 150px;
+  display: block;
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.filterBy {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+.slider:hover {
+  opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url("contrasticon.png");
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url("contrasticon.png");
+  cursor: pointer;
+}
+
+.rate-area {
+  float: left;
+  border-style: none;
 }
 .rate-area:not(:checked) > input {
-    position: absolute;
-    top: -9999px;
-    clip: rect(0,0,0,0);
+  position: absolute;
+  top: -9999px;
+  clip: rect(0, 0, 0, 0);
 }
 .rate-area:not(:checked) > label {
-    float: right;
-    width: 1em;
-    padding: 0 .1em;
-    overflow: hidden;
-    white-space: nowrap;
-    cursor: pointer;
-    font-size: 180%;
-    line-height: 1.2;
-    color: lightgrey;
-    text-shadow: 1px 1px #bbb;
+  float: right;
+  width: 1em;
+  padding: 0 0.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 180%;
+  line-height: 1.2;
+  color: lightgrey;
+  text-shadow: 1px 1px #bbb;
 }
-    
-    .rate-area:not(:checked) > label:before { content: '★ '; }
-  
-    .rate-area > input:checked ~ label {
-        color: gold;
-         text-shadow: 1px 1px #c60;
-         font-size: 200% !important;
-       }
+.rate-area:not(:checked) > label:before {
+  content: "★ ";
+}
+.rate-area > input:checked ~ label {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+  font-size: 200% !important;
+}
+.rate-area > label:active {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
 
-    .rate-area:not(:checked) > label:hover, .rate-area:not(:checked) > label:hover ~ label { color: gold; }
- 
-    .rate-area > input:checked + label:hover, .rate-area > input:checked + label:hover ~ label, .rate-area > input:checked ~ label:hover, .rate-area > input:checked ~ label:hover ~ label, .rate-area > label:hover ~ input:checked ~ label {
-        color: gold;
-        text-shadow: 1px 1px goldenrod;
-    }
- 
-    .rate-area > label:active {
-        position: relative;
-        top: 2px;
-        left: 2px;
-    }
-    
+.rate-area:not(:checked) > label:hover, .rate-area:not(:checked) > label:hover ~ label {
+  color: gold;
+}
+
+.rate-area > input:checked + label:hover, .rate-area > input:checked + label:hover ~ label, .rate-area > input:checked ~ label:hover, .rate-area > input:checked ~ label:hover ~ label, .rate-area > label:hover ~ input:checked ~ label {
+  color: gold;
+  text-shadow: 1px 1px goldenrod;
+}
+
+/*# sourceMappingURL=styles.css.map */
